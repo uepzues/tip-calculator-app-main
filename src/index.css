@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base{
+  body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #c5e4e7;
+    
+  }
+}
+
+@layer utilities {
+  .remove-arrow::-webkit-inner-spin-button,
+  .remove-arrow::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0;
+  }
+  .remove-arrow {
+    appearance: textfield;
+  }
+
+  div > input{
+    display: flex;
+    text-align: right;
+    width: 100%;
+    margin: auto;
+    height: 46px;
+    font-size: 24px;
+    line-height: 10px;
+    padding-right: 11px;
+    border: none;
+    border-radius: 5px;
+    color:#00494d;
+
+
+    /* color: #26c0ab */
+    /* color: #00494d; */
+    /* color: #5e7a7d; */
+    /* color: #7f9c9f; */
+    /* color: #c5e4e7; */
+    /* color: #f4fafa; */
+      
+  }
+
+  /* div span input, div span:focus-within{
+    border: 2px solid #26c0ab;
+  } */
+
+ 
+
+}
