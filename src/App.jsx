@@ -44,9 +44,9 @@ function App() {
 
   return (
     <div className="max-w-[920px] h-[700px]">
-        <div className="logo flex justify-center items-center">
-          <img src={logo} alt="logo" />
-        </div>
+      <div className="logo flex justify-center items-center">
+        <img src={logo} alt="logo" />
+      </div>
       <main className=" w-[920px] font-SpaceMono flex flex-col justify-center items-center mt-[90px] h-[480px] bg-[#f4fafa] rounded-3xl">
         <div className="card grid grid-cols-2 gap-8 px-[48px] w-full h-ful">
           <section className="input h-[480px] w-[380px] py-[44px]">
@@ -58,7 +58,12 @@ function App() {
                 onValueChange={handleNumChange}
               />
 
-              <label className='block mt-[40px] mb-[15px] text-[#5e7a7d]' htmlFor="tip">Select Tip %</label>
+              <label
+                className="block mt-[40px] mb-[15px] text-[#5e7a7d]"
+                htmlFor="tip"
+              >
+                Select Tip %
+              </label>
               <div
                 className="tip grid grid-cols-3 grid-rows-2 gap-[15px] mb-[39px]"
                 id="tip"
@@ -108,23 +113,28 @@ function App() {
               />
             </form>
           </section>
-          <section className="output grid">
+          <section className="output flex flex-col h-[420px] w-[410px] bg-[#00494d] pl-[40px] pr-[40px] py-[43px] m-auto rounded-2xl">
             <AppOutput
-              type='Tip Amount'
+              type="Tip Amount"
               formula={(numBill && perValue && numPeeps
                 ? (numBill * perValue) / numPeeps
                 : 0
               ).toFixed(2)}
             />
             <AppOutput
-              type='Total'
+              type="Total"
               formula={(numBill && perValue && numPeeps
                 ? (numBill * perValue + Number(numBill)) / numPeeps
                 : 0
               ).toFixed(2)}
             />
-            <form  onSubmit={handleReset}>
-              <button className=" border flex justify-center items-center m-auto h-[40px] w-full" type="submit">Reset</button>
+            <form className="mt-[96px]" onSubmit={handleReset}>
+              <button
+                className=" flex justify-center items-center m-auto h-[45px] w-full rounded-md uppercase text-[20px] bg-[#26c0ab] hover:bg-[#26c0ab] hover:opacity-80"
+                type="submit"
+              >
+                Reset
+              </button>
             </form>
           </section>
         </div>

@@ -29,6 +29,7 @@ export function TipInput({ icon, name, label, labelError, onValueChange }) {
             type="number"
             name={name}
             value={num}
+            placeholder="0"
             onChange={handleChange}
           />
         </span>
