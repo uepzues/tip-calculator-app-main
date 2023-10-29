@@ -3,7 +3,11 @@ export default {
   content: ["./src/**/*.jsx", "./src/*.jsx"],
   theme: {
     fontFamily: {
-      "SpaceMono": ["Space Mono", 'sans-serif']
+      SpaceMono: ["Space Mono", "sans-serif"],
+    },
+    screens: {
+      md: { max: "900px" },
+      mobile: "400px",
     },
     extend: {},
   },

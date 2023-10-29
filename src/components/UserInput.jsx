@@ -32,7 +32,7 @@ export function UserInput({ onValueChange }) {
           autoFocus
         />
       ) : (
-        <div className="text-center text-[26px] text-[#5e7a7d] leading-[1.7] cursor-pointer"  value={tip}>
+        <div className="text-center text-[26px] text-[#5e7a7d] leading-[1.7] cursor-pointer md:w-full"  value={tip}>
           {tip || placeholder}
         </div>
       )}

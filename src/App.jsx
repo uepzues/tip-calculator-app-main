@@ -35,27 +35,26 @@ function App() {
     console.log(numPeeps);
   };
 
-  const handleReset = (e) => {
-    e.preventDefault;
-    setPerValue("0");
-    setNumBill("0");
-    setNumPeeps("0");
+  const handleReset = () => {
+    
   };
 
   return (
-    <div className="max-w-[920px] h-[700px]">
-      <div className="logo flex justify-center items-center">
+    <div className="max-w-[920px] flex flex-col h-[700px] md:max-w-[375px]
+    md:h-screen md:mt-[180px]">
+      <div className="logo flex justify-center items-center ">
         <img src={logo} alt="logo" />
       </div>
-      <main className=" w-[920px] font-SpaceMono flex flex-col justify-center items-center mt-[90px] h-[480px] bg-[#f4fafa] rounded-3xl">
-        <div className="card grid grid-cols-2 gap-8 px-[48px] w-full h-ful">
-          <section className="input h-[480px] w-[380px] py-[44px]">
+      <main className=" w-[920px] font-SpaceMono flex flex-col justify-center items-center mt-[90px] h-[480px] bg-[#f4fafa] rounded-3xl md:h-auto md:w-auto md:mt-[40px]">
+        <div className="card grid grid-cols-2 gap-8 px-[48px] w-full h-ful md:grid-cols-1 md:px-[30px]">
+          <section className="input h-[480px] w-[380px] py-[44px] md:w-auto md:py-[36px]">
             <form className="h-full" onChange={handleSubmit}>
               <TipInput
                 icon={iconDollar}
                 name="bill"
                 label="Bill"
                 onValueChange={handleNumChange}
+                onHandleReset={handleReset}
               />
 
               <label
@@ -65,41 +64,47 @@ function App() {
                 Select Tip %
               </label>
               <div
-                className="tip grid grid-cols-3 grid-rows-2 gap-[15px] mb-[39px]"
+                className="tip grid grid-cols-3 grid-rows-2 gap-[15px] mb-[39px] md:grid-cols-2 md:grid-rows-3"
                 id="tip"
               >
                 <TipButton
                   rowStart="row-start-1"
+                  rowStart2='row-start-1'
                   percent="5"
                   perValue={perValue}
                   onValueChange={handlePerValueChange}
                 />
                 <TipButton
-                  rowStart="row-start-1"
+                  // rowStart="row-start-1"
+                  rowStart2='row-start-1'
                   percent="10"
                   perValue={perValue}
                   onValueChange={handlePerValueChange}
                 />
                 <TipButton
                   rowStart="row-start-1"
+                  rowStart2='row-start-2'
                   percent="15"
                   perValue={perValue}
                   onValueChange={handlePerValueChange}
                 />
                 <TipButton
                   rowStart="row-start-2"
+                  rowStart2='row-start-2'
                   percent="25"
                   perValue={perValue}
                   onValueChange={handlePerValueChange}
                 />
                 <TipButton
                   rowStart="row-start-2"
+                  rowStart2='row-start-3'
                   percent="50"
                   perValue={perValue}
                   onValueChange={handlePerValueChange}
                 />
                 <UserInput
                   rowStart="row-start-2"
+                  rowStart2='row-start-3'
                   // perValue={perValue}
                   onValueChange={handlePerValueChange}
                 />
@@ -110,10 +115,11 @@ function App() {
                 label="Number of People"
                 labelError="Can't be zero"
                 onValueChange={handleUserChange}
+                onHandleReset={handleReset}
               />
             </form>
           </section>
-          <section className="output flex flex-col h-[420px] w-[410px] bg-[#00494d] pl-[40px] pr-[40px] py-[43px] m-auto rounded-2xl">
+          <section className="output flex flex-col h-[420px] w-[410px] bg-[#00494d] pl-[40px] pr-[40px] py-[43px] m-auto rounded-2xl md:w-full md:h-auto md:mb-[30px] md:p-[20px]">
             <AppOutput
               type="Tip Amount"
               formula={(numBill && perValue && numPeeps
@@ -128,7 +134,7 @@ function App() {
                 : 0
               ).toFixed(2)}
             />
-            <form className="mt-[96px]" onSubmit={handleReset}>
+            <form className="mt-[96px] md:mt-[60px]">
               <button
                 className=" flex justify-center items-center m-auto h-[45px] w-full rounded-md uppercase text-[20px] bg-[#26c0ab] hover:bg-[#26c0ab] hover:opacity-80"
                 type="submit"
