@@ -9,14 +9,10 @@ export function AppOutput({ formula, type }) {
           <p className="text-sm text-[#7f9c9f] ">/ person</p>
         </div>
         <div>
-          <h1 className="flex text-[46px] justify-end  font-bold relative text-[#26c0ab] md:text-[32px] ">
-            {/* <img
-              className="block h-7 justify-self-stretch"
-              src={iconDollar}
-              alt="dollar icon"
-            /> */}
+          <p className="flex text-[46px] justify-end  font-bold relative text-[#26c0ab] md:text-[32px] ">
+          
             ${formula}
-          </h1>
+          </p>
         </div>
       </div>
     </>
@@ -25,5 +21,5 @@ export function AppOutput({ formula, type }) {
 
 AppOutput.propTypes = {
   formula: PropTypes.string,
-  type: PropTypes.string
+  type: PropTypes.string,
 };

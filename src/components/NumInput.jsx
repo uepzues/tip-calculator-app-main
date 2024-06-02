@@ -1,27 +1,34 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 
-export function TipInput({ icon, name, label, onValueChange, onHandleReset }) {
-  const [num, setNum] = useState("");
+export function NumInput({ icon, name, label, onValueChange, reset }) {
+  const [num, setNum] = useState(0);
   const [inputState, setInputState] = useState(false);
+
   const handleChange = (e) => {
     const newNum = e.target.value;
-    // console.log(newBill);
-    setNum(newNum);
+    if (newNum.match(/^\d*$/) || newNum === "") {
+      setNum(newNum);
+    } else {
+      setNum(0);
+    }
   };
 
   const handleFocus = () => {
-    console.log("focused");
     setInputState(true);
   };
 
   const handleBlur = () => {
     setInputState(false);
   };
-  
+
   useEffect(() => {
     onValueChange(num);
-  }, [num, onValueChange, ]);
+  }, [num, onValueChange]);
+
+  useEffect(() => {
+    setNum(0);
+  }, [reset]);
 
   return (
     <>
@@ -29,8 +36,6 @@ export function TipInput({ icon, name, label, onValueChange, onHandleReset }) {
         <label className="text-[#5e7a7d]" htmlFor={name}>
           {label}
         </label>
-
-        {/* {num == 0 ? (<label className="text-[red] inline-block text-right w-1/2 relative" htmlFor={name}>{labelError}</label>) : null} */}
 
         <br className="mb-[5px]" />
         <span
@@ -43,26 +48,25 @@ export function TipInput({ icon, name, label, onValueChange, onHandleReset }) {
           <img className="h-[17px] mt-[7px] ml-[10px] " src={icon} alt="icon" />
           <input
             className=" w-full remove-arrow border-0 bg-slate-200 focus:outline-none text-right h-[30px] text-[#00494d] text-[24px] pr-[10px]"
-            id={name}
-            type="number"
-            name={name}
-            value={num}
             placeholder="0"
+            id={name}
+            type="text"
+            name={name}
+            value={num === 0 ? "" : num}
             onChange={handleChange}
             onFocus={handleFocus}
             onBlur={handleBlur}
-            onReset={onHandleReset}
           />
         </span>
       </div>
     </>
   );
 }
-TipInput.propTypes = {
+NumInput.propTypes = {
   icon: PropTypes.string,
   name: PropTypes.string,
   label: PropTypes.string,
   labelError: PropTypes.string,
   onValueChange: PropTypes.func,
-  onHandleReset: PropTypes.func,
+  reset: PropTypes.bool,
 };
